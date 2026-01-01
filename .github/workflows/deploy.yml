@@ -19,4 +19,4 @@ jobs:
 
       - name: Upload updated file to S3
         run: |
-          aws s3 cp index.html s3://demo-demo-21/index.html
+          aws s3 cp index.html s3://demo-demo-21
