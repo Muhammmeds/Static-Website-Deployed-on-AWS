@@ -35,4 +35,5 @@ jobs:
           echo Hello, $second_name!
           echo ${{github.repository}}
           echo ${{github.workflow}}
+          cat index.txt
 
