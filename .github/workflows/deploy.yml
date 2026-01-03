@@ -2,9 +2,9 @@ name: Deploy to S3
 
 
 on:
-  push:
-    branches: [ main ]
-
+  # push:
+  #   branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   id-token: write
@@ -13,6 +13,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v4
 
@@ -20,7 +21,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::803420623185:role/github-oidc-connect
-          aws-region: us-east-1
+          aws-region: eu-west-2
 
       - name: Upload updated file to S3
         run: |
