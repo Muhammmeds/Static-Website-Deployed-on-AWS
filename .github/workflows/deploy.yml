@@ -1,4 +1,4 @@
-name: Deploy to S3
+name: learning
 
 
 on:
@@ -6,23 +6,23 @@ on:
   #   branches: [ main ]
   workflow_dispatch:
 
-permissions:
-  id-token: write
-  contents: read
+# permissions:
+#   id-token: write
+#   contents: read
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - uses: actions/checkout@v4
+      - name: chekout out source
+        uses: actions/checkout@v4
 
-      - name: Configure AWS
-        uses: aws-actions/configure-aws-credentials@v2
+      - name: create text
+        run: echo "hello world" > app/index.txt
+
+      - name: Upload plan artifact
+        uses: actions/upload-artifact@v4
         with:
-          role-to-assume: arn:aws:iam::803420623185:role/github-oidc-connect
-          aws-region: eu-west-2
-
-      - name: Upload updated file to S3
-        run: |
-          aws s3 cp index.html s3://demo-demo-21
+          name: show txt
+          path: app/index.txt
