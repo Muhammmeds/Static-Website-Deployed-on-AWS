@@ -1,7 +1,7 @@
 
 # Static Website Deployed on S3
 
-This project showcases a fully automated DevOps workflow for a static website, using Terraform for infrastructure provisioning and CI/CD pipelines to build, deploy, and manage the application lifecycle.”
+This project showcases a fully automated DevOps workflow for a static website, using Terraform for infrastructure provisioning and CI/CD pipelines to build, deploy, and manage the application lifecycle.
 
 
 ### Project Overview
@@ -14,4 +14,31 @@ This project showcases a fully automated DevOps workflow for a static website, u
 - ***CI/CD pipeline*** to automate build, test, and deployment of app using Github actions.
 
 ## Architecture Diagram
-<img width="685" height="465" alt="diagram" src="https://github.com/user-attachments/assets/1deb0b92-1b41-4de0-9cfc-1c940f56f4e1" />
+<img width="2130" height="1423" alt="Cloud diagram" src="https://github.com/user-attachments/assets/4583a66b-acf1-41db-b209-51bb2e864fc0" />
+
+## Project Structure
+```text
+
+└── STATIC-WEBSITE/
+    ├── .github/workflows/
+    │   ├── deploy.yaml
+    │   ├── terraform-plan.yaml
+    │   ├── terraform-apply.yaml
+    │   └── terraform-destroy.yaml
+    ├── terraform/
+    │   ├── modules/
+    │   │   ├── s3-cloudfront
+    │   ├── main.tf
+    │   ├── output.tf
+    │   └── provider.tf
+    ├── app/
+    │   └── index.html
+    ├── README.md
+    └── .gitignore
+```
+
+
+## Screenshots
+
+<img width="2877" height="1528" alt="Screenshot" src="https://github.com/user-attachments/assets/e2cb6910-5ea2-420d-96ca-3a0bee36f2f5" />
+<img width="333" height="239" alt="Screenshot" src="https://github.com/user-attachments/assets/15fbff75-34a7-43b1-b8ca-09cd2caca659" />
