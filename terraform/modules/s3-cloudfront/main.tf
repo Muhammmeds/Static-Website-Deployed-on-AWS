@@ -1,5 +1,13 @@
 resource "aws_s3_bucket" "static_website_demo" {
   bucket = var.bucket_name
+ 
+}
+
+resource "aws_s3_bucket_versioning" "versioning" {
+  bucket = aws_s3_bucket.static_website_demo.id
+  versioning_configuration {
+    status = "Enabled"
+  }
 }
 
 resource "aws_s3_bucket_public_access_block" "this" {

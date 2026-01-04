@@ -1,10 +1,4 @@
-# resource "aws_s3_bucket" "demo-demo-21" {
-#   bucket = "demo-demo-21-bucket"
-# }
 
-# resource "aws_s3_bucket" "demo-demo-22" {
-#   bucket = "demo-demo-22-bucket"
-# }
 
 module "s3_cloudfront" {
   source      = "./modules/s3-cloudfront"
