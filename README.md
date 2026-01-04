@@ -1,5 +1,5 @@
 
-# Static Website Deployed on S3
+# Static Website Deployed on AWS
 
 This project showcases a fully automated DevOps workflow for a static website, using Terraform for infrastructure provisioning and CI/CD pipelines to build, deploy, and manage the application lifecycle.
 
