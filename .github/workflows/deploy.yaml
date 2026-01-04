@@ -1,0 +1,30 @@
+name: Deploy to s3
+
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+     
+    # fetch repo
+    steps:
+      - name: chekout out source
+        uses: actions/checkout@v4
+      
+        # configure aws with oidc instead of Access and Secret keys
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::932173290372:role/github-role-for-oidc
+          aws-region: eu-west-2
+
+      #  update file in s3 to latest
+      - name: Update index.html
+        working-directory: app
+        run: aws s3 cp index.html s3://my-static-site-demo-21
